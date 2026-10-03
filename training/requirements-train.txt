@@ -1,0 +1,7 @@
+# Only needed to RE-TRAIN the model (not for the Streamlit app)
+torch>=2.2
+opencv-python-headless>=4.8
+numpy
+pillow
+matplotlib
+pytest
