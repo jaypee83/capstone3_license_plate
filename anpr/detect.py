@@ -26,8 +26,15 @@ class PlateCandidate:
 
 
 @lru_cache(maxsize=1)
-def _cascade() -> Optional[cv2.CascadeClassifier]:
-    c = cv2.CascadeClassifier(str(HAAR_XML))
+def _cascade():
+    """Haar cascade, or None if unavailable. (OpenCV 5 moved CascadeClassifier out of the
+    main package; then we simply rely on the contour-based detector.)"""
+    if not hasattr(cv2, "CascadeClassifier"):
+        return None
+    try:
+        c = cv2.CascadeClassifier(str(HAAR_XML))
+    except Exception:
+        return None
     return None if c.empty() else c
 
 
