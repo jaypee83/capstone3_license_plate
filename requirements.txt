@@ -1,5 +1,5 @@
 streamlit>=1.40
-opencv-python-headless>=4.8
+opencv-python-headless>=4.10,<5
 numpy
 pandas
 pillow
